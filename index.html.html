@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mauricio | Programador Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                  url('https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      font-weight: 600;
+      color: #00d1ff;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    header p {
+      font-size: 1.3em;
+      color: #ccc;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .proyectos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 60px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .proyecto {
+      background-color: rgba(255, 255, 255, 0.07);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .proyecto:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
+    }
+
+    .proyecto h3 {
+      margin-bottom: 10px;
+      color: #00d1ff;
+    }
+
+    .proyecto p {
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 0 12px #25D366;
+      transition: background 0.3s;
+    }
+
+    .whatsapp:hover {
+      background-color: #1ebe5d;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.9);
+      text-align: center;
+      padding: 25px;
+      color: #aaa;
+      font-size: 0.95em;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      color: white;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .modal-content a {
+      color: #00d1ff;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @media(max-width: 500px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mauricio Prada</h1>
+    <p>"No solo escribo código. Construyo futuros digitales."</p>
+  </header>
+
+  <section class="proyectos">
+    <div class="proyecto" onclick="abrirModal('modal1')">
+      <h3>Relojería Online</h3>
+      <p>Tienda elegante para relojes de lujo.</p>
+    </div>
+    <div class="proyecto" onclick="abrirModal('modal2')">
+      <h3>Control Ambiental</h3>
+      <p>Software académico para monitorear contaminación.</p>
+    </div>
+    <div class="proyecto" onclick="abrirModal('modal3')">
+      <h3>Calculadora de Calistenia</h3>
+      <p>App simple para atletas y entrenadores.</p>
+    </div>
+  </section>
+
+  <!-- MODALES -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal('modal1')">&times;</span>
+      <img src="https://via.placeholder.com/500x300" alt="Relojería Online">
+      <h3>Relojería Online</h3>
+      <p>Diseño elegante, responsive y profesional para una tienda de relojes de lujo.</p>
+      <p><strong>Tecnologías:</strong> HTML, CSS, Flexbox</p>
+      <a href="#">Ver demo</a>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cerrarModal('modal2')">&times;</span>
+    <img src="https://via.placeholder.com/500x300" alt="Sistema de Control Ambiental">
+    <h3>Sistema de Control Ambiental</h3>
+    <p>Plataforma enfocada en la reducción de emisiones industriales con fines académicos.</p>
+    <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+    <a href="https://mauricioprada.github.io/contaminaci-n-ambiental./" target="_blank">Ver demo</a>
+  </div>
+</div>
+
+
+  <div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cerrarModal('modal3')">&times;</span>
+    <img src="https://via.placeholder.com/500x300" alt="Calculadora de Calistenia">
+    <h3>Calculadora de Calistenia</h3>
+    <p>App web funcional para planificar repeticiones, series y tiempos de descanso.</p>
+    <p><strong>Tecnologías:</strong> HTML, CSS, lógica básica en JS</p>
+    <a href="https://mauricioprada.github.io/programa/" target="_blank">Probar ahora</a>
+  </div>
+</div>
+
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp" href="https://wa.me/573028568256?text=Hola%2C%20quiero%20contactarte%20por%20tus%20servicios%20de%20programación" target="_blank">💬 WhatsApp</a>
+
+  <footer>
+    © 2025 Mauricio Prada | Todos los derechos reservados
+  </footer>
+
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function cerrarModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // Cierra al hacer clic fuera del modal
+    window.onclick = function(event) {
+      const modales = document.querySelectorAll('.modal');
+      modales.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>
+
+
